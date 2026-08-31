@@ -2,7 +2,7 @@ name: CI-WORKFLOW
 
 on:
   push: 
-  branches: ["Main"]
+   branches: ["Main"]
 
 jobs:
   buil-test:
