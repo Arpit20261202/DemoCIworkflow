@@ -26,6 +26,3 @@ jobs:
 
       - name: deploy
         run: echo "my code is deployed"
-```
-
-> Note: The image uses `actions/checkout@v7` and `actions/upload-artifact@v7`, but those versions do not currently exist. If you're creating a real GitHub Actions workflow, use `@v4` for both actions instead.
