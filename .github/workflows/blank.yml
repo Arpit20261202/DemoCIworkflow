@@ -34,8 +34,3 @@ jobs:
 
       - name: DEPLOY
         run: echo "my code is deployed"
-
-
-* This matches the images, including `runs-on: ubuntu-slim` and the artifact path `package*`.
-
-* For a real GitHub Actions workflow, `actions/upload-artifact@v7` should be changed to `actions/upload-artifact@v4` because `v7` is not a valid released version.
