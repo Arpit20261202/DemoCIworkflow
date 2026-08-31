@@ -1,7 +1,8 @@
 name: CI-WORKFLOW
 
 on:
-  workflow_dispatch:
+  push: 
+  branches: ["Main"]
 
 jobs:
   buil-test:
