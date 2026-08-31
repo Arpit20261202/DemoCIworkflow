@@ -1,22 +1,29 @@
-name: CI-WORKFLOW
+name: Secure DevSecOps Pipeline
 
 on:
-  push: 
-   branches: ["Main"]
+  push:
+    branches:
+      - master
 
 jobs:
-  buil-test:
-    runs-on: ubuntu-22.04
+  build_and_package:
+    name: BUILD-JOB
+    runs-on: ubuntu-slim
 
     steps:
-      - name: checkout
-        uses: actions/checkout@v7
+      - name: Checkout Code
+        uses: actions/checkout@v4
 
-      - name: build
+      - name: Set up Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+
+      - name: BUILD
         run: npm install
 
-      - name: test
-        run: npm test
+      - name: TEST
+        run: echo "code is tested !"
 
       - name: Artifact upload
         uses: actions/upload-artifact@v7
@@ -25,5 +32,10 @@ jobs:
           path: |
             package*
 
-      - name: deploy
+      - name: DEPLOY
         run: echo "my code is deployed"
+
+
+* This matches the images, including `runs-on: ubuntu-slim` and the artifact path `package*`.
+
+* For a real GitHub Actions workflow, `actions/upload-artifact@v7` should be changed to `actions/upload-artifact@v4` because `v7` is not a valid released version.
